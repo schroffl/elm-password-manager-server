@@ -40,13 +40,10 @@ applyWinner rState winner =
     RemoteWins _ -> rState
 
 updateEntry :: RemoteState -> Entry -> RemoteState
-updateEntry rState entry =
-  map
-    (\e ->
-       if isSame e entry
-         then entry
-         else e)
-    rState
+updateEntry [] entry = []
+updateEntry (x:xs) entry
+  | isSame x entry = entry : xs
+  | otherwise = x : updateEntry xs entry
 
 findMatch :: RemoteState -> Entry -> (Entry, Maybe Entry)
 findMatch rState entry = (entry, find (isSame entry) rState)
@@ -72,7 +69,8 @@ generateId :: RemoteState -> Int
 generateId = succ . maximum . map Entry.id
 
 testRS :: RemoteState
-testRS = [Entry 1 (EntryMeta False True 200), Entry 0 (EntryMeta False True 100)]
+testRS =
+  [Entry 1 (EntryMeta False True 200), Entry 0 (EntryMeta False True 100)]
 
 testLS :: LocalState
 testLS = LocalState [newEntry] [Entry 0 (EntryMeta False False 200)]
