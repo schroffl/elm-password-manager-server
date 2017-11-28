@@ -15,9 +15,11 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Entry
-                     , Diff
+  exposed-modules:     DB
   build-depends:       base >= 4.7 && < 5
+                     , HDBC
+                     , HDBC-sqlite3
+                     , resource-pool
   default-language:    Haskell2010
 
 executable haskell-pwm-server-exe
@@ -26,6 +28,7 @@ executable haskell-pwm-server-exe
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
                      , haskell-pwm-server
+                     , Spock
   default-language:    Haskell2010
 
 test-suite haskell-pwm-server-test
