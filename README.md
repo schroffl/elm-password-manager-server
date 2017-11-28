@@ -1,2 +1,2 @@
-# elm-password-manager-server
+# haskell-password-manager-server
 Server for https://github.com/schroffl/elm-password-manager

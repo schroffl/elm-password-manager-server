@@ -1,8 +1,8 @@
-name:                elm-pwm-server
+name:                haskell-pwm-server
 version:             0.1.0.0
 -- synopsis:
 -- description:
-homepage:            https://github.com/githubuser/elm-pwm-server#readme
+homepage:            https://github.com/githubuser/haskell-pwm-server#readme
 license:             MIT
 license-file:        LICENSE
 author:              schroffl
@@ -20,23 +20,23 @@ library
   build-depends:       base >= 4.7 && < 5
   default-language:    Haskell2010
 
-executable elm-pwm-server-exe
+executable haskell-pwm-server-exe
   hs-source-dirs:      app
   main-is:             Main.hs
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
-                     , elm-pwm-server
+                     , haskell-pwm-server
   default-language:    Haskell2010
 
-test-suite elm-pwm-server-test
+test-suite haskell-pwm-server-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
   build-depends:       base
-                     , elm-pwm-server
+                     , haskell-pwm-server
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
 
 source-repository head
   type:     git
-  location: https://github.com/githubuser/elm-pwm-server
+  location: https://github.com/githubuser/haskell-pwm-server
